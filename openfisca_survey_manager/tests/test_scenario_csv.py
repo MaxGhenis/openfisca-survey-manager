@@ -37,6 +37,7 @@ def create_entity_csv_files():
 
 
 def test_survey_scenario_csv_import():
+    create_entity_csv_files()
     survey_scenario = AbstractSurveyScenario()
     survey_scenario.set_tax_benefit_systems(tax_benefit_system = tax_benefit_system)
     survey_scenario.year = 2017
@@ -69,5 +70,4 @@ if __name__ == "__main__":
     import sys
     log = logging.getLogger(__name__)
     logging.basicConfig(level = logging.DEBUG, stream = sys.stdout)
-    create_entity_csv_files()
     test_survey_scenario_csv_import()
