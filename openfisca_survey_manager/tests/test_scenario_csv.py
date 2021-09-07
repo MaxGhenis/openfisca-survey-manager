@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-
-
 import logging
 import os
 import pandas as pd
@@ -8,11 +5,6 @@ import pkg_resources
 
 from openfisca_core.model_api import *  # noqa analysis:ignore
 from openfisca_core import periods
-from openfisca_survey_manager.input_dataframe_generator import (
-    make_input_dataframe_by_entity,
-    random_data_generator,
-    randomly_init_variable,
-    )
 from openfisca_country_template import CountryTaxBenefitSystem
 from openfisca_survey_manager.tests.test_scenario import generate_input_input_dataframe_by_entity
 from openfisca_survey_manager.scenarios import AbstractSurveyScenario
@@ -57,7 +49,7 @@ def test_survey_scenario_csv_import():
         }
     survey_scenario.init_from_data(data = data)
     simulation = survey_scenario.simulation
-    error = 1e-03
+    error = 2e-03
     assert (
         (simulation.calculate('salary', period) - input_data_frame_by_entity['person']['salary']).abs()
         < error).all()
